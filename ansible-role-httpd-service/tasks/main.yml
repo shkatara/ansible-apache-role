@@ -1,0 +1,11 @@
+---
+- name: Starting httpd service
+  service:
+        name: httpd
+        state: started
+        enabled: true
+  notify:
+        - allow_through_firewall 
+        - copy_template
+        - copy_index
+...

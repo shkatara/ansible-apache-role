@@ -1,0 +1,9 @@
+---
+# main.yml for task definitions
+- name: installing apache web server
+  yum:
+        name: "{{apache_web_server}}"
+        state: present
+
+
+

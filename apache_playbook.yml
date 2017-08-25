@@ -1,0 +1,14 @@
+---
+#This is the main playbook for configuring hosts on hosts. 
+- name: Apache server configuration role.
+  hosts: all
+  pre_tasks:
+  - debug:
+        msg: Installing Apache
+  roles:
+        - ansible-role-httpd
+        - ansible-role-httpd-service
+  post_tasks:
+  - debug:
+        msg: Insalled Apache 
+...      

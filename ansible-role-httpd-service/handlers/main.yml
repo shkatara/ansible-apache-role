@@ -1,0 +1,22 @@
+---
+# Handler triggered by tasks/main.yml task.
+- name: allow_through_firewall
+  firewalld:
+        immediate: yes
+        permanent: true
+        state: enabled
+        service: http
+
+- name: copy_template
+  template: 
+        src: templates/main.j2
+        dest: /etc/httpd/conf.d/vhost.conf
+        mode: 644
+        owner: root
+        group: root
+
+- name: copy_index
+  copy:
+        src: html/index.html
+        dest: /var/www/html
+...
